@@ -3,4 +3,16 @@
 
     <string name="hello_world">Hello world!</string>
     <string name="action_settings">Settings</string>
+
+
+    <string-array name="league_image_links">
+        <item>https://upload.wikimedia.org/wikipedia/en/a/a2/Premier_Reserve_League.png</item>
+        <item>http://vignette2.wikia.nocookie.net/fifa14/images/8/8e/La_Liga_Logo.png/revision/latest?cb=20130525045314</item>
+        <item>https://upload.wikimedia.org/wikipedia/an/thumb/3/3e/Bundesliga-Logo-2010.png/1223px-Bundesliga-Logo-2010.png</item>
+        <item>https://upload.wikimedia.org/wikipedia/en/f/f7/LegaSerieAlogoTIM.png</item>
+        <item>http://vignette1.wikia.nocookie.net/fifa14/images/f/f6/Ligue_1_Logo.png/revision/latest?cb=20130603161315</item>
+        <item>http://vignette1.wikia.nocookie.net/the-football-database/images/5/5a/Eredivisie_Logo.png/revision/latest?cb=20130628104812</item>
+        <item>http://futhead.cursecdn.com/static/img/15/leagues_large/308.png</item>
+        <item>http://vignette2.wikia.nocookie.net/the-football-database/images/5/5b/500px-UEFA_Champions_League_logo_2.svg.png/revision/latest?cb=20131111130531</item>
+    </string-array>
 </resources>

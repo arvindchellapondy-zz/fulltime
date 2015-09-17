@@ -4,13 +4,21 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.RelativeLayout;
 
-public class FullTimeActivity extends AppCompatActivity {
+import butterknife.Bind;
+import zerobase.us.fulltime.base.BaseActivity;
+import zerobase.us.fulltime.ui.AllLeaguesFragment;
+
+public class FullTimeActivity extends BaseActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_full_time);
+        fragmentContainerID = R.id.fragment_container;
+
+        switchFragment(AllLeaguesFragment.newInstance(),true);
     }
 
     @Override

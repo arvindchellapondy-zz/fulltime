@@ -20,7 +20,7 @@ public class BaseActivity extends AppCompatActivity implements SwitchFragmentInt
         if(addToBackStack) {
             transaction.addToBackStack(null);
         }
-        transaction.replace(fragmentContainerID, fragment, fragment.getClass().getName());
+        transaction.replace(fragmentContainerID, fragment, fragment.getClass().getSimpleName());
         transaction.commit();
     }
 }
