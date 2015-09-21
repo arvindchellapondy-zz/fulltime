@@ -1,7 +1,7 @@
 package zerobase.us.fulltime.base;
 
+import android.app.Activity;
 import android.app.Fragment;
-import android.content.Context;
 
 import zerobase.us.fulltime.interfaces.SwitchFragmentInterface;
 
@@ -17,10 +17,10 @@ public class BaseFragment extends Fragment {
     protected SwitchFragmentInterface switchFragment;
 
     @Override
-    public void onAttach(Context context) {
-        super.onAttach(context);
+    public void onAttach(Activity activity) {
+        super.onAttach(activity);
         try {
-            switchFragment = (SwitchFragmentInterface) context;
+            switchFragment = (SwitchFragmentInterface) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(ERROR_MESSAGE);
         }
