@@ -1,5 +1,25 @@
 apply plugin: 'com.android.application'
 
+// A string that holds a build name.
+def devBuildName = "debug"
+// Used to get to the source of the project.
+def profileRootSource = projectDir.toString() + File.separator + "src"
+// Used as part of file name.
+def devRootSource = profileRootSource + File.separator + devBuildName
+// Branch name that the build is created from.
+def gitBranchName = 'git rev-parse --abbrev-ref HEAD'.execute([], project.rootDir).text.trim()
+// This contains the time when the build was generated.
+def buildTime = new Date().format("yyyy-MM-dd'T'HH:mm'Z'", TimeZone.getTimeZone("UTC"))
+// This contains only the date.
+def buildDate = buildTime.split('T')[0].replace('-', " ");
+
+def debugProperties = new Properties()
+debugProperties.load(new FileInputStream(rootProject.file("debug.properties")))
+android.signingConfigs.debug.storeFile rootProject.file(debugProperties.keyStore)
+android.signingConfigs.debug.storePassword debugProperties.keyStorePassword
+android.signingConfigs.debug.keyAlias debugProperties.keyAlias
+android.signingConfigs.debug.keyPassword debugProperties.keyAliasPassword
+
 android {
     compileSdkVersion 23
     buildToolsVersion "23.0.1"
@@ -11,10 +31,28 @@ android {
         versionCode 1
         versionName "1.0"
     }
+
+    signingConfigs {
+        debug {
+            storeFile file(devRootSource
+                    + File.separator
+                    + "debug.keystore")
+        }
+    }
     buildTypes {
-        release {
+        debug {
+            signingConfig signingConfigs.debug
+            versionNameSuffix devBuildName.toUpperCase().concat("-${gitBranchName}-".toUpperCase()).concat("${buildDate}")
+            debuggable true
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            applicationVariants.all { variant ->
+                variant.outputs.each { output ->
+                    output.outputFile = new File(
+                            output.outputFile.parent,
+                            output.outputFile.name.replace("app-debug.apk", "${versionNameSuffix}.apk"))
+                }
+            }
         }
     }
 }
