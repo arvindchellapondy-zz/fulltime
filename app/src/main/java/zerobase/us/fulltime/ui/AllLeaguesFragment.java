@@ -37,12 +37,13 @@ public class AllLeaguesFragment extends BaseFragment {
     @Bind(R.id.reveal_view)
      View revealView;
 
+    private int[] colors;
+
     private ArrayList<Leagues> leagues;
     private String[] leagueImages;
 
     public static AllLeaguesFragment newInstance() {
         AllLeaguesFragment fragment = new AllLeaguesFragment();
-
         return fragment;
     }
 
@@ -52,6 +53,7 @@ public class AllLeaguesFragment extends BaseFragment {
         View view = inflater.inflate(R.layout.fragment_all_leagues,container,false);
         ButterKnife.bind(this, view);
         gridAdapter = new AllLeaguesGridAdapter(getActivity());
+        colors = getActivity().getResources().getIntArray(R.array.league_material_colors_array);
         leagueImages = getActivity().getResources().getStringArray(R.array.league_image_links);
         return view;
     }
@@ -70,6 +72,8 @@ public class AllLeaguesFragment extends BaseFragment {
         gridView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
+                revealView.setBackgroundColor(colors[position]);
 
                 int [] location = new int[2];
                 view.getLocationOnScreen(location);
@@ -102,15 +106,8 @@ public class AllLeaguesFragment extends BaseFragment {
         @Override
         public void onAnimationEnd(Animator animation) {
 
-            //Toast.makeText(getActivity(),"HIIIII",Toast.LENGTH_SHORT).show();
+            switchFragment.switchFragment(new LeagueFragment(),true);
 
-            //switchFragment.switchFragment(new LeagueFragment(),true);
-
-//            Intent i = new Intent(AllLeaguesFragment.this, AllLeaguesFragment.class);
-//            i.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION);
-//            startActivity(i);
-//            overridePendingTransition(0, 0);
-//            finish();
         }
 
         @Override

@@ -12,7 +12,7 @@
         android:id="@+id/league_logo_image_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:scaleType="centerCrop"/>
+        android:scaleType="centerCrop" />
 
     <TextView
         android:id="@+id/league_logo_text_view"

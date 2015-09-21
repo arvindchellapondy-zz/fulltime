@@ -16,10 +16,13 @@ public class BaseActivity extends AppCompatActivity implements SwitchFragmentInt
 
     @Override
     public void switchFragment(Fragment fragment, boolean addToBackStack) {
+        
+
         FragmentTransaction transaction = getFragmentManager().beginTransaction();
         if(addToBackStack) {
             transaction.addToBackStack(null);
         }
+        transaction.setCustomAnimations(android.R.animator.fade_in, android.R.animator.fade_out);
         transaction.replace(fragmentContainerID, fragment, fragment.getClass().getSimpleName());
         transaction.commit();
     }
