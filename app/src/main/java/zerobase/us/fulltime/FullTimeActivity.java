@@ -1,12 +1,9 @@
 package zerobase.us.fulltime;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.RelativeLayout;
 
-import butterknife.Bind;
 import zerobase.us.fulltime.base.BaseActivity;
 import zerobase.us.fulltime.ui.AllLeaguesFragment;
 
@@ -18,7 +15,7 @@ public class FullTimeActivity extends BaseActivity {
         setContentView(R.layout.activity_full_time);
         fragmentContainerID = R.id.fragment_container;
 
-        switchFragment(AllLeaguesFragment.newInstance(),true);
+        switchToFragment(AllLeaguesFragment.newInstance(), true);
     }
 
     @Override

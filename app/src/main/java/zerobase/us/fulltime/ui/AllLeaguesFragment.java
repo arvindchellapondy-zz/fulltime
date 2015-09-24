@@ -1,18 +1,13 @@
 package zerobase.us.fulltime.ui;
 
 import android.animation.Animator;
-import android.app.Fragment;
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.view.LayoutInflater;
-import android.view.MotionEvent;
 import android.view.View;
-import android.view.ViewAnimationUtils;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.GridView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -106,7 +101,7 @@ public class AllLeaguesFragment extends BaseFragment {
         @Override
         public void onAnimationEnd(Animator animation) {
 
-            switchFragment.switchFragment(new LeagueFragment(),true);
+            fragmentSwitch.switchToFragment(new LeagueFragment(), true);
 
         }
 
