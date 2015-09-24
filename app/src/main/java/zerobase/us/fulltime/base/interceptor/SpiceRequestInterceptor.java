@@ -22,6 +22,6 @@ public class SpiceRequestInterceptor implements RequestInterceptor {
 
     @Override
     public void intercept(RequestFacade request) {
-        request.addHeader("Authorization", apiKey);
+        request.addHeader("X-Auth-Token", apiKey);
     }
 }
