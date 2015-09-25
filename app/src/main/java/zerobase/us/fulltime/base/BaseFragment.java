@@ -16,6 +16,7 @@ public class BaseFragment extends Fragment {
 
     protected FragmentSwitch fragmentSwitch;
 
+    @SuppressWarnings("deprecation")
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
