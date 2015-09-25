@@ -68,6 +68,7 @@ public class BaseSpiceService<T> extends SpiceService {
     public void onCreate() {
         super.onCreate();
         builder = (builder != null) ? builder : createRestAdapterBuilder();
+        restAdapter = builder.build();
     }
 
     @Override

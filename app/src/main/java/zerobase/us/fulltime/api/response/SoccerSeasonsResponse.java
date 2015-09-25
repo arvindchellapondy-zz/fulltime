@@ -15,7 +15,6 @@ import zerobase.us.fulltime.model.SoccerSeason;
  */
 public class SoccerSeasonsResponse implements Parcelable {
 
-    @SerializedName("")
     private ArrayList<SoccerSeason> soccerSeasons;
 
     protected SoccerSeasonsResponse(Parcel in) {
