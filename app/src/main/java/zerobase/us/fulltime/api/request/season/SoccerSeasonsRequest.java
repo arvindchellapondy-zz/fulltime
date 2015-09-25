@@ -1,4 +1,4 @@
-package zerobase.us.fulltime.api.request;
+package zerobase.us.fulltime.api.request.season;
 
 import zerobase.us.fulltime.base.request.BaseSpiceRequest;
 import zerobase.us.fulltime.interfaces.api.FootballRequestManager;
