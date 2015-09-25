@@ -1,8 +1,8 @@
 package zerobase.us.fulltime.api.request;
 
-import zerobase.us.fulltime.api.response.SoccerSeasonsResponse;
 import zerobase.us.fulltime.base.request.BaseSpiceRequest;
 import zerobase.us.fulltime.interfaces.api.FootballRequestManager;
+import zerobase.us.fulltime.model.SoccerSeason;
 import zerobase.us.fulltime.utils.Constants;
 
 /**
@@ -10,10 +10,10 @@ import zerobase.us.fulltime.utils.Constants;
  * Created by Sripadmanaban on 9/24/2015.
  */
 public class SoccerSeasonsRequest
-        extends BaseSpiceRequest<SoccerSeasonsResponse, FootballRequestManager> {
+        extends BaseSpiceRequest<SoccerSeason[], FootballRequestManager> {
 
     public SoccerSeasonsRequest() {
-        super(SoccerSeasonsResponse.class, FootballRequestManager.class);
+        super(SoccerSeason[].class, FootballRequestManager.class);
     }
 
     @Override
@@ -23,7 +23,7 @@ public class SoccerSeasonsRequest
     }
 
     @Override
-    public SoccerSeasonsResponse loadDataFromNetwork() throws Exception {
+    public SoccerSeason[] loadDataFromNetwork() throws Exception {
         return getService().getSeasons();
     }
 }

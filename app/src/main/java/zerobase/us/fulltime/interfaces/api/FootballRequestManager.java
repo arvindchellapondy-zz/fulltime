@@ -1,7 +1,7 @@
 package zerobase.us.fulltime.interfaces.api;
 
 import retrofit.http.GET;
-import zerobase.us.fulltime.api.response.SoccerSeasonsResponse;
+import zerobase.us.fulltime.model.SoccerSeason;
 
 /**
  * This is the interface that will be used to take care of the api calls.
@@ -15,6 +15,6 @@ public interface FootballRequestManager {
      * @return An Object of SoccerSeasonsResponse.
      */
     @GET("/alpha/soccerseasons")
-    public SoccerSeasonsResponse getSeasons();
+    public SoccerSeason[] getSeasons();
 
 }
