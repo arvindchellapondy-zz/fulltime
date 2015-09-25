@@ -87,7 +87,7 @@ public class BaseSpiceService<T> extends SpiceService {
     @SuppressWarnings("unchecked")
     @Override
     public void addRequest(CachedSpiceRequest<?> request, Set<RequestListener<?>> listRequestListener) {
-        if(request.getSpiceRequest() instanceof RetrofitSpiceRequest) {
+        if (request.getSpiceRequest() instanceof RetrofitSpiceRequest) {
             RetrofitSpiceRequest retrofitSpiceRequest =
                     (RetrofitSpiceRequest) request.getSpiceRequest();
 
@@ -100,13 +100,14 @@ public class BaseSpiceService<T> extends SpiceService {
 
     /**
      * This is the function that is used to create the rest adapter builder.
+     *
      * @return An object of RestAdapter.Builder used to create the rest adapter.
      */
     private RestAdapter.Builder createRestAdapterBuilder() {
         builder = new RestAdapter.Builder();
         builder.setEndpoint(getServerURL());
 
-        if(converter != null) {
+        if (converter != null) {
             builder.setConverter(converter);
         } else {
             Gson customGSONWithExclude = new GsonBuilder().setExclusionStrategies(new ExclusionStrategy() {
@@ -127,12 +128,12 @@ public class BaseSpiceService<T> extends SpiceService {
             builder.setConverter(converter);
         }
 
-        if(requestInterceptor != null) {
+        if (requestInterceptor != null) {
             builder.setRequestInterceptor(requestInterceptor);
             builder.setErrorHandler(networkErrorHandler);
         }
 
-        if(BuildConfig.BUILD_TYPE.matches("debug") || BuildConfig.BUILD_TYPE.matches("beta")) {
+        if (BuildConfig.BUILD_TYPE.matches("debug") || BuildConfig.BUILD_TYPE.matches("beta")) {
             builder.setLogLevel(RestAdapter.LogLevel.FULL);
         }
 
@@ -144,14 +145,16 @@ public class BaseSpiceService<T> extends SpiceService {
 
     /**
      * This is the function that is used to get the server endpoint.
+     *
      * @return A String that contains the servers URL.
      */
-    private String getServerURL() {
+    protected String getServerURL() {
         return FootballURL.getBaseURL();
     }
 
     /**
      * This is the function that is used to add a request manager for a particular service.
+     *
      * @param requestManager A request manager object, who's calls will be taken care of by the
      *                       service that calls this function.
      */
@@ -162,15 +165,16 @@ public class BaseSpiceService<T> extends SpiceService {
     /**
      * This is the function that is used to get the service class that is related to the request
      * manager.
+     *
      * @param requestManager A request manager class who's service is required.
-     * @param <T> Not exactly provided. Not sure.
+     * @param <T>            Not exactly provided. Not sure.
      * @return An object that represents the service that is related to the request manager.
      */
     @SuppressWarnings({"rawtypes", "unchecked"})
     protected <T> T getRetofitService(Class<T> requestManager) {
         T service = (T) requestManagerToServiceMap.get(requestManager);
 
-        if(service == null) {
+        if (service == null) {
             // Creating a service for the request manager.
             service = restAdapter.create(requestManager);
             requestManagerToServiceMap.put(requestManager, service);
@@ -181,6 +185,7 @@ public class BaseSpiceService<T> extends SpiceService {
 
     /**
      * This is a function that returns all the request manager classes.
+     *
      * @return A list of class. The classes are request managers.
      */
     public List<Class<?>> getRequestManagerList() {
