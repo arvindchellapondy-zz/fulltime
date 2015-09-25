@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * This is the class that contains the details about the team.
  * Created by Sripadmanaban on 9/21/2015.
  */
-public class Teams implements Parcelable {
+public class Team implements Parcelable {
 
     @SerializedName("_links")
     Links links;
@@ -29,7 +29,7 @@ public class Teams implements Parcelable {
     @SerializedName("crestUrl")
     private String crestURL;
 
-    protected Teams(Parcel in) {
+    protected Team(Parcel in) {
         links = in.readParcelable(Links.class.getClassLoader());
         name = in.readString();
         code = in.readString();
@@ -38,15 +38,15 @@ public class Teams implements Parcelable {
         crestURL = in.readString();
     }
 
-    public static final Creator<Teams> CREATOR = new Creator<Teams>() {
+    public static final Creator<Team> CREATOR = new Creator<Team>() {
         @Override
-        public Teams createFromParcel(Parcel in) {
-            return new Teams(in);
+        public Team createFromParcel(Parcel in) {
+            return new Team(in);
         }
 
         @Override
-        public Teams[] newArray(int size) {
-            return new Teams[size];
+        public Team[] newArray(int size) {
+            return new Team[size];
         }
     };
 
