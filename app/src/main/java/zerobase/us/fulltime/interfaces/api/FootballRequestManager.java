@@ -2,9 +2,9 @@ package zerobase.us.fulltime.interfaces.api;
 
 import retrofit.http.GET;
 import retrofit.http.Path;
+import zerobase.us.fulltime.api.response.LeagueTableResponse;
 import zerobase.us.fulltime.api.response.PlayerResponse;
 import zerobase.us.fulltime.api.response.TeamsResponse;
-import zerobase.us.fulltime.model.Player;
 import zerobase.us.fulltime.model.SoccerSeason;
 import zerobase.us.fulltime.model.Team;
 
@@ -34,6 +34,7 @@ public interface FootballRequestManager {
 
     /**
      * This is the function that is to be called to get the teams in a particular season.
+     *
      * @param seasonID A long that holds the season ID who's teams are required.
      * @return An object of TeamsResponse.
      */
@@ -43,6 +44,7 @@ public interface FootballRequestManager {
 
     /**
      * This is the function that is to be called to get the team by a team ID.
+     *
      * @param teamID A long that holds the team ID.
      * @return An object of Team.
      */
@@ -50,8 +52,24 @@ public interface FootballRequestManager {
     Team getTeamByTeamID(
             @Path("teamID") long teamID);
 
+    /**
+     * This is the function that is called to get the players in a team.
+     *
+     * @param teamID A long that contains the teams ID.
+     * @return An object of PlayerResponse.
+     */
     @GET("/alpha/teams/{teamID}/players")
     PlayerResponse getPlayerByTeamID(
             @Path("teamID") long teamID);
+
+    /**
+     * This is the function to call to get the league table for a season.
+     *
+     * @param seasonID A long that contains the seasons id.
+     * @return An object of LeagueTableResponse.
+     */
+    @GET("/alpha/soccerseasons/{seasonID/leagueTable")
+    LeagueTableResponse getLeagueTableBySeasonID(
+            @Path("seasonID") long seasonID);
 
 }
