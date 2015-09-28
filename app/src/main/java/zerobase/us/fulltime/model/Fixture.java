@@ -14,7 +14,7 @@ import zerobase.us.fulltime.model.fixture.Result;
 public class Fixture implements Parcelable {
 
     @SerializedName("_links")
-    Links links;
+    private Links links;
 
     @SerializedName("date")
     private String date;
@@ -35,6 +35,7 @@ public class Fixture implements Parcelable {
     Result result;
 
     protected Fixture(Parcel in) {
+        links = in.readParcelable(Links.class.getClassLoader());
         date = in.readString();
         status = in.readString();
         matchDay = in.readInt();
@@ -62,6 +63,7 @@ public class Fixture implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
+        dest.writeParcelable(links, flags);
         dest.writeString(date);
         dest.writeString(status);
         dest.writeInt(matchDay);

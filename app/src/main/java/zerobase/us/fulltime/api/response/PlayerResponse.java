@@ -17,13 +17,13 @@ import zerobase.us.fulltime.model.Player;
 public class PlayerResponse implements Parcelable {
 
     @SerializedName("_links")
-    Links links;
+    private Links links;
 
     @SerializedName("count")
-    long count;
+    private long count;
 
     @SerializedName("players")
-    ArrayList<Player> players;
+    private ArrayList<Player> players;
 
     protected PlayerResponse(Parcel in) {
         links = in.readParcelable(Links.class.getClassLoader());

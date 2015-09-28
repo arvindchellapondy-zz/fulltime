@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
 public class Team implements Parcelable {
 
     @SerializedName("_links")
-    Links links;
+    private Links links;
 
     @SerializedName("name")
     private String name;
