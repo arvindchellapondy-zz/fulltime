@@ -21,28 +21,28 @@ import zerobase.us.fulltime.model.links.Teams;
 public class Links implements Parcelable {
 
     @SerializedName("self")
-    Self self;
+    private Self self;
 
     @SerializedName("awayTeam")
-    AwayTeam awayTeam;
+    private AwayTeam awayTeam;
 
     @SerializedName("fixtures")
-    Fixtures fixtures;
+    private Fixtures fixtures;
 
     @SerializedName("homeTeam")
-    HomeTeam homeTeam;
+    private HomeTeam homeTeam;
 
     @SerializedName("leagueTable")
-    LeagueTable leagueTable;
+    private LeagueTable leagueTable;
 
     @SerializedName("players")
-    Players players;
+    private Players players;
 
     @SerializedName("soccerseason")
-    SoccerSeason soccerSeason;
+    private SoccerSeason soccerSeason;
 
     @SerializedName("teams")
-    Teams teams;
+    private Teams teams;
 
     protected Links(Parcel in) {
         self = in.readParcelable(Self.class.getClassLoader());

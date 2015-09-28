@@ -12,7 +12,7 @@ import com.google.gson.annotations.SerializedName;
 public class SoccerSeason implements Parcelable {
 
     @SerializedName("_links")
-    Links links;
+    private Links links;
 
     @SerializedName("caption")
     private String caption;

@@ -6,7 +6,7 @@ import android.app.Fragment;
  * This is the interface that is going to be used to switch fragments.
  * Created by Sripadmanaban on 9/14/2015.
  */
-public interface SwitchFragmentInterface {
+public interface FragmentSwitch {
 
     /**
      * This function is used to switch fragments.
@@ -16,5 +16,5 @@ public interface SwitchFragmentInterface {
      * @param addToBackStack A boolean that, if true means it should be added to the back stack
      *                       else not to be added to the back stack.
      */
-    void switchFragment(Fragment fragment, boolean addToBackStack);
+    void switchToFragment(Fragment fragment, boolean addToBackStack);
 }

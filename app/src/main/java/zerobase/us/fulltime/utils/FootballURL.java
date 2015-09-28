@@ -16,7 +16,7 @@ public class FootballURL {
         } else {
             baseURL = "";
         }
-        return null;
+        return baseURL;
     }
 
 }

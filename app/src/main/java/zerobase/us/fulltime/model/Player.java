@@ -9,7 +9,7 @@ import com.google.gson.annotations.SerializedName;
  * This is the class that contains all the information about a player.
  * Created by Sripadmanaban on 9/21/2015.
  */
-public class Players implements Parcelable {
+public class Player implements Parcelable {
 
     @SerializedName("id")
     private long id;
@@ -35,7 +35,7 @@ public class Players implements Parcelable {
     @SerializedName("marketValue")
     private String marketValue;
 
-    protected Players(Parcel in) {
+    protected Player(Parcel in) {
         id = in.readLong();
         name = in.readString();
         position = in.readString();
@@ -46,15 +46,15 @@ public class Players implements Parcelable {
         marketValue = in.readString();
     }
 
-    public static final Creator<Players> CREATOR = new Creator<Players>() {
+    public static final Creator<Player> CREATOR = new Creator<Player>() {
         @Override
-        public Players createFromParcel(Parcel in) {
-            return new Players(in);
+        public Player createFromParcel(Parcel in) {
+            return new Player(in);
         }
 
         @Override
-        public Players[] newArray(int size) {
-            return new Players[size];
+        public Player[] newArray(int size) {
+            return new Player[size];
         }
     };
 

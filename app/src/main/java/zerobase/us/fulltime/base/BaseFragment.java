@@ -3,7 +3,7 @@ package zerobase.us.fulltime.base;
 import android.app.Activity;
 import android.app.Fragment;
 
-import zerobase.us.fulltime.interfaces.SwitchFragmentInterface;
+import zerobase.us.fulltime.interfaces.FragmentSwitch;
 
 /**
  * This is the fragment that will serve as the base for all the fragments.
@@ -12,16 +12,16 @@ import zerobase.us.fulltime.interfaces.SwitchFragmentInterface;
 public class BaseFragment extends Fragment {
 
     private static final String ERROR_MESSAGE
-            = "SwitchFragmentInterface has not been implemented in the activity.";
+            = "FragmentSwitch has not been implemented in the activity.";
 
-    protected SwitchFragmentInterface switchFragment;
+    protected FragmentSwitch fragmentSwitch;
 
     @SuppressWarnings("deprecation")
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
         try {
-            switchFragment = (SwitchFragmentInterface) activity;
+            fragmentSwitch = (FragmentSwitch) activity;
         } catch (ClassCastException e) {
             throw new ClassCastException(ERROR_MESSAGE);
         }
@@ -30,6 +30,6 @@ public class BaseFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
-        switchFragment = null;
+        fragmentSwitch = null;
     }
 }
