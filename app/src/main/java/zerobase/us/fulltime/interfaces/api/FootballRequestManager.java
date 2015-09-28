@@ -2,7 +2,9 @@ package zerobase.us.fulltime.interfaces.api;
 
 import retrofit.http.GET;
 import retrofit.http.Path;
+import zerobase.us.fulltime.api.response.PlayerResponse;
 import zerobase.us.fulltime.api.response.TeamsResponse;
+import zerobase.us.fulltime.model.Player;
 import zerobase.us.fulltime.model.SoccerSeason;
 import zerobase.us.fulltime.model.Team;
 
@@ -46,6 +48,10 @@ public interface FootballRequestManager {
      */
     @GET("alpha/teams/{teamID}")
     Team getTeamByTeamID(
+            @Path("teamID") long teamID);
+
+    @GET("/alpha/teams/{teamID}/players")
+    PlayerResponse getPlayerByTeamID(
             @Path("teamID") long teamID);
 
 }

@@ -16,13 +16,13 @@ import zerobase.us.fulltime.model.Team;
 public class TeamsResponse implements Parcelable {
 
     @SerializedName("count")
-    private int count;
+    private long count;
 
     @SerializedName("teams")
     private ArrayList<Team> teams;
 
     protected TeamsResponse(Parcel in) {
-        count = in.readInt();
+        count = in.readLong();
         teams = in.createTypedArrayList(Team.CREATOR);
     }
 
@@ -45,7 +45,7 @@ public class TeamsResponse implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeInt(count);
+        dest.writeLong(count);
         dest.writeTypedList(teams);
     }
 }
