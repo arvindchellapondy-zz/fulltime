@@ -2,6 +2,7 @@ package zerobase.us.fulltime.interfaces.api;
 
 import retrofit.http.GET;
 import retrofit.http.Path;
+import zerobase.us.fulltime.api.response.FixturesResponse;
 import zerobase.us.fulltime.api.response.LeagueTableResponse;
 import zerobase.us.fulltime.api.response.PlayerResponse;
 import zerobase.us.fulltime.api.response.TeamsResponse;
@@ -68,8 +69,28 @@ public interface FootballRequestManager {
      * @param seasonID A long that contains the seasons id.
      * @return An object of LeagueTableResponse.
      */
-    @GET("/alpha/soccerseasons/{seasonID/leagueTable")
+    @GET("/alpha/soccerseasons/{seasonID}/leagueTable")
     LeagueTableResponse getLeagueTableBySeasonID(
             @Path("seasonID") long seasonID);
+
+    /**
+     * This is the function to be called to get the fixtures for a season.
+     *
+     * @param seasonID A long that contains the season id.
+     * @return An object of FixturesResponse.
+     */
+    @GET("/alpha/soccerseasons/{seasonID}/fixtures")
+    FixturesResponse getFixturesForSeason(
+            @Path("seasonID") long seasonID);
+
+    /**
+     * This is the function to be called to get the fixtures for a team.
+     *
+     * @param teamID A long that contains the team id.
+     * @return An object of FixturesResponse.
+     */
+    @GET("/alpha/teams/{teamID}/fixtures")
+    FixturesResponse getFixturesForTeam(
+            @Path("teamID") long teamID);
 
 }
